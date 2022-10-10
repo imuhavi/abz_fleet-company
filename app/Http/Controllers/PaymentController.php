@@ -25,7 +25,7 @@ class PaymentController extends Controller
     }
     public function create()
     {
-        return view('payments.create', ['vehicles' => DrivVehicleer::get(['id','name'])]);
+        return view('payments.create', ['vehicles' => Driver::get(['id','name'])]);
     }
 
     /**
