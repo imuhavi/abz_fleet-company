@@ -14,25 +14,31 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($customers as $key => $customer)
+        @foreach ($drivers as $key => $driver)
         <tr>
-            <td>{{ $customer->id  }}</td>
-            <td>{{ $customer->name }}</td>
-            <td>{{ $customer->email }}</td>
-            <td>{{ $customer->address }}</td>
-            <td>{{ $customer->company }}</td>
-            <td>{{ $customer->phone }}</td>
-            <td>{{ $customer->created_at->format('Y/m/d') }}</td>
-            <td>
+            <td>{{ $driver->id  }}</td>
+            <td>{{ $driver->name }}</td>
+            <td>{{ $driver->email }}</td>
+            <td>{{ $driver->address }}</td>
+            <td>{{ $driver->company }}</td>
+            <td>{{ $driver->phone }}</td>
+            <td>{{ $driver->created_at }}</td>
+            {{-- <td>
                 <div class="table-actions d-flex">
-                    <a href="{{ route('customers.edit', $customer->id) }}"><i class="ik ik-edit-2"></i></a>
-                    <a href="#" data-toggle="modal" data-target="#delete{{ $key }}"><i class="ik ik-trash-2"></i></a>
+                    <a href="{{ route('drivers.edit', $driver->id) }}"><i class="ik ik-edit-2"></i>Edit</a>
+                    <a href="#" data-toggle="modal" data-target="#delete{{ $key }}"><i class="ik ik-trash-2"></i>Delete</a>
 
                 </div>
+            </td> --}}
+            <td>
+                <a class="btn btn-info btn-sm" href="{{ route('drivers.show', $driver->id) }}">Show</a>
+            </td>
+            <td>
+                <a class="btn btn-primary btn-sm" href="{{ route('drivers.edit', $driver->id) }}">Edit</a>
             </td>
             <td></td>
         </tr>
-        @include('customers.delete')
+        @include('drivers.delete')
         @endforeach
     </tbody>
 </table>

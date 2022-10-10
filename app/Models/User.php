@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
+use App\Models\Driver;
 
 class User extends Authenticatable
 {
@@ -61,5 +62,9 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
+    }
+    public function drivers()
+    {
+        return $this->hasMany(Driver::class);
     }
 }

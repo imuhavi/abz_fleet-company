@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehicle;
+use App\Models\Driver;
 use Illuminate\Http\Request;
 
-class VehicleController extends Controller
+class DriverController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $vehicles = Vehicle::latest()->paginate(10);
+        $drivers = Driver::latest()->paginate(10);
 
-        return view('vehicles.index', compact('vehicles'));
+        return view('drivers.index', compact('drivers'));
     }
 
     /**
@@ -26,7 +26,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        return view('vehicles.create');
+        return view('drivers.create');
     }
 
     /**
@@ -37,12 +37,13 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        Vehicle::create(array_merge($request->only('title', 'description', 'body'),[
-            'user_id' => auth()->id()
+       
+        Driver::create(array_merge($request->only('name', 'address', 'email', 'phone','company'),[
+            'created_by' => auth()->id()
         ]));
 
-        return redirect()->route('vehicles.index')
-            ->withSuccess(__('Vehicle created successfully.'));
+        return redirect()->route('drivers.index')
+            ->withSuccess(__('Driver created successfully.'));
     }
 
     /**
@@ -51,10 +52,10 @@ class VehicleController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show(Driver $driver)
     {
-        return view('vehicle.show', [
-            'vehicle' => $vehicle
+        return view('drivers.show', [
+            'driver' => $driver
         ]);
     }
 
@@ -64,10 +65,10 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehicle $vehicle)
+    public function edit(Driver $driver)
     {
-        return view('vehicles.edit', [
-            'vehicle' => $vehicle
+        return view('drivers.edit', [
+            'driver' => $driver
         ]);
     }
 
@@ -78,25 +79,25 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(Request $request, Driver $driver)
     {
         $post->update($request->only('title', 'description', 'body'));
 
-        return redirect()->route('vehicle.index')
-            ->withSuccess(__('vehicle updated successfully.'));
+        return redirect()->route('drivers.index')
+            ->withSuccess(__('driver updated successfully.'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle $post)
+    public function destroy(Driver $driver)
     {
         $post->delete();
 
-        return redirect()->route('Vehicles.index')
-            ->withSuccess(__('Vehicle deleted successfully.'));
+        return redirect()->route('drivers.index')
+            ->withSuccess(__('Driver deleted successfully.'));
     }
 }

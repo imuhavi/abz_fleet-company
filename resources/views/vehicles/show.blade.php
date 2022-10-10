@@ -9,10 +9,10 @@
         
         <div class="container mt-4">
             <div>
-                Title: {{ $post->title }}
+                Title: {{ $vehicle->name }}
             </div>
             <div>
-                Description: {{ $post->description }}
+                Description: {{ $vehicle->description }}
             </div>
             <div>
                 Body: {{ $post->body }}

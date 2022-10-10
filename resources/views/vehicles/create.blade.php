@@ -15,7 +15,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="exampleInputName1">Driver Name</label>
-                <select name="customer_id" class="form-control">
+                <select name="driver_id" class="form-control">
                     <option value="">Select</option>
                     @foreach ($drivers as $driver)
                         <option value="{{ $driver->id }}" @if (isset($vehicle))

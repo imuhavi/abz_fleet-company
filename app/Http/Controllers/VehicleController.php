@@ -15,8 +15,9 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::latest()->paginate(10);
+        $driver = Driver::all();
 
-        return view('vehicles.index', compact('vehicles'));
+        return view('vehicles.index', compact('vehicles','driver'));
     }
 
     /**
@@ -36,8 +37,9 @@ class VehicleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        Vehicle::create(array_merge($request->only('name', 'fleet_number', 'driver_id', 'packing_charge')));
+    { 
+        Vehicle::create(array_merge($request->only('name', 'fleet_number', 'driver_id', 'packing_charge', [
+            'created_by' => auth()->id()])));
 
         return redirect()->route('vehicles.index')
             ->withSuccess(__('Vehicle created successfully.'));
@@ -51,7 +53,7 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        return view('vehicle.show', [
+        return view('vehicles.show', [
             'vehicle' => $vehicle
         ]);
     }

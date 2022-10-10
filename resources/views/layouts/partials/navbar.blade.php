@@ -12,11 +12,15 @@
           <li><a href="{{ route('users.index') }}" class="nav-link px-2 text-white">Users</a></li>
           <li><a href="{{ route('roles.index') }}" class="nav-link px-2 text-white">Roles</a></li>
           <li><a href="{{ route('vehicles.index') }}" class="nav-link px-2 text-white">Vehicles</a></li>
+          <li><a href="{{ route('drivers.index') }}" class="nav-link px-2 text-white">Drivers</a></li>
           @endrole
           @role(['cashier'])
           <!-- <li><a href="{{ route('posts.index') }}" class="nav-link px-2 text-white">Posts</a></li> -->
           <li><a href="{{ route('vehicles.index') }}" class="nav-link px-2 text-white">Vehicles</a></li>
           <li><a href="{{ route('payments.index') }}" class="nav-link px-2 text-white">Payments</a></li>
+          @endrole
+          @role('user')
+          <li><a href="{{ route('payments.index') }}" class="nav-link px-2 text-white">Subscriptions</a></li>
           @endrole
         @endauth
       </ul>

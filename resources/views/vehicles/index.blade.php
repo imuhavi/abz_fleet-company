@@ -29,7 +29,7 @@
                 <td>{{ $vehicle->id }}</td>
                 <td>{{ $vehicle->name }}</td>
                 <td>{{ $vehicle->fleet_number }}</td>
-                <td>{{ $vehicle->name }}</td>
+                <td>{{ $vehicle->driver->name }}</td>
                 <td>{{ $vehicle->status }}</td>
                 <td>
                     <a class="btn btn-info btn-sm" href="{{ route('vehicles.show', $vehicle->id) }}">Show</a>
