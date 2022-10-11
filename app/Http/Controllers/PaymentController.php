@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use App\Models\Driver;
+use App\Models\Vehicle;
 
 class PaymentController extends Controller
 {
@@ -12,9 +13,9 @@ class PaymentController extends Controller
     public function index()
     {
         $payments = Payment::latest()->paginate(10);
-        $driver = Driver::all();
+        $vehicle = Vehicle::all();
 
-        return view('payments.index', compact('payments','driver'));
+        return view('payments.index', compact('payments','vehicle'));
     }
     public function show(Payment $payment)
     {
