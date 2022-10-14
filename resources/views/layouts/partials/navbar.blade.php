@@ -21,6 +21,7 @@
           @endrole
           @role('user')
           <li><a href="{{ route('payments.index') }}" class="nav-link px-2 text-white">Subscriptions</a></li>
+          <li><a href="{{ route('vehicles.index') }}" class="nav-link px-2 text-white">Vehicles</a></li>
           @endrole
         @endauth
       </ul>

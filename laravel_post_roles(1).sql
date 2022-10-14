@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 09, 2022 at 09:56 PM
+-- Generation Time: Oct 14, 2022 at 03:37 PM
 -- Server version: 8.0.30-0ubuntu0.22.04.1
 -- PHP Version: 8.1.11
 
@@ -123,7 +123,8 @@ CREATE TABLE `model_has_roles` (
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
-(2, 'App\\Models\\User', 2);
+(2, 'App\\Models\\User', 2),
+(3, 'App\\Models\\User', 3);
 
 -- --------------------------------------------------------
 
@@ -379,9 +380,23 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (54, 2),
 (55, 2),
 (1, 3),
+(2, 3),
+(3, 3),
+(4, 3),
+(5, 3),
+(6, 3),
 (35, 3),
+(37, 3),
+(38, 3),
+(39, 3),
 (42, 3),
-(49, 3);
+(49, 3),
+(50, 3),
+(51, 3),
+(52, 3),
+(53, 3),
+(54, 3),
+(55, 3);
 
 -- --------------------------------------------------------
 
@@ -448,7 +463,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `stripe_id`, `pm_type`, `pm_last_four`, `trial_ends_at`) VALUES
 (1, 'Admin', 'admin@gmail.com', 'admin', NULL, '$2y$10$GW2pEpR15SLCA.pzQAkQL.z2yORd5y8MsWk4OmnA8gAJqXFQGnzh.', NULL, '2022-10-07 11:10:01', '2022-10-07 11:10:01', NULL, NULL, NULL, NULL),
-(2, 'Ian Muhavi', 'ianmuhavi@gmail.com', 'imuhavi', NULL, '$2y$10$7/ZBltCNB1saqqOM9IXUQeMNlfTCXUCu8OZq9qKV.ZEK2RjDcpx9i', NULL, '2022-10-07 12:06:00', '2022-10-07 12:07:57', NULL, NULL, NULL, NULL);
+(2, 'Ian Muhavi', 'ianmuhavi@gmail.com', 'imuhavi', NULL, '$2y$10$7/ZBltCNB1saqqOM9IXUQeMNlfTCXUCu8OZq9qKV.ZEK2RjDcpx9i', NULL, '2022-10-07 12:06:00', '2022-10-07 12:07:57', NULL, NULL, NULL, NULL),
+(3, 'test user', 'test@gmail.com', 'testuser', NULL, '$2y$10$Z7BH14at6lxRmEXXK2bQSumaIJ6eVM5Schr.SmM9wSb97dYcpHKgm', NULL, '2022-10-14 09:21:42', '2022-10-14 09:21:42', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -664,7 +680,7 @@ ALTER TABLE `subscription_items`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `vehicles`
